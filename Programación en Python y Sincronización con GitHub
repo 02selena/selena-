@@ -1,0 +1,76 @@
+def buscar_valor(matriz, valor):
+    """
+    Función que busca un valor específico en una matriz bidimensional.
+
+    :param matriz: La matriz bidimensional en la que se realizará la búsqueda.
+    :param valor: El valor que se desea encontrar en la matriz.
+    :return: True si se encuentra el valor, False de lo contrario.
+    """
+    for i in range(len(matriz)):
+        for j in range(len(matriz[i])):
+            if matriz[i][j] == valor:
+                print(f"El valor {valor} se encuentra en la posición ({i}, {j}) de la matriz.")
+                return True
+    print(f"El valor {valor} no se encuentra en la matriz.")
+    return False
+
+# Matriz de ejemplo (3x3)
+matriz_ejemplo = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+# Valor a buscar
+valor_a_buscar = 5
+
+# Llamada a la función buscar_valor
+encontrado = buscar_valor(matriz_ejemplo, valor_a_buscar)
+
+# Mensaje si el valor no se encuentra
+if not encontrado:
+    print(f"El valor {valor_a_buscar} no se encuentra en la matriz.")
+
+
+
+def ordenar_fila(matriz, fila):
+    """
+    Función que ordena una fila específica de una matriz en orden ascendente utilizando el algoritmo de Bubble Sort.
+
+    :param matriz: La matriz bidimensional en la que se realizará la ordenación.
+    :param fila: El índice de la fila que se desea ordenar.
+    :return: La matriz con la fila ordenada.
+    """
+    fila_ordenada = sorted(matriz[fila])
+    matriz[fila] = fila_ordenada
+    return matriz
+
+def imprimir_matriz(matriz):
+    """
+    Función que imprime una matriz bidimensional.
+
+    :param matriz: La matriz que se desea imprimir.
+    """
+    for fila in matriz:
+        print(fila)
+
+# Matriz de ejemplo (3x3)
+matriz_ejemplo = [
+    [3, 1, 2],
+    [6, 5, 4],
+    [9, 8, 7]
+]
+
+# Índice de la fila a ordenar
+fila_a_ordenar = 1
+
+# Imprimir matriz original
+print("Matriz original:")
+imprimir_matriz(matriz_ejemplo)
+
+# Ordenar la fila específica
+matriz_ordenada = ordenar_fila(matriz_ejemplo, fila_a_ordenar)
+
+# Imprimir matriz con la fila ordenada
+print("\nMatriz con la fila ordenada:")
+imprimir_matriz(matriz_ordenada)
