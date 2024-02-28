@@ -1,1 +1,17 @@
-Registro de Temperaturas Diarias
+import numpy as np
+
+# Definir las ciudades, días de la semana y semanas
+ciudades = ['Ciudad A', 'Ciudad B', 'Ciudad C']
+dias_semana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']
+semanas = 4  # Por ejemplo, 4 semanas
+
+# Crear matriz tridimensional para almacenar las temperaturas
+temperaturas = np.random.randint(10, 30, size=(len(ciudades), len(dias_semana), semanas))
+
+# Calcular el promedio de temperaturas para cada ciudad por semana
+for i, ciudad in enumerate(ciudades):
+    print(f'Promedio de temperaturas para {ciudad}:')
+    for j, dia in enumerate(dias_semana):
+        promedio_semana = np.mean(temperaturas[i, j, :])
+        print(f'- {dia}: {promedio_semana}')
+    print()
