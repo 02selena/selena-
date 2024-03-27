@@ -1,0 +1,15 @@
+# Escritura de archivo de texto
+with open("my_notes.txt", "w") as file:
+    file.write("Notas personales:\n")
+    file.write("1. Hoy es un buen día.\n")
+    file.write("2. No olvidar comprar leche en el supermercado.\n")
+    file.write("3. Revisar el correo electrónico más tarde.\n")
+
+# Lectura de archivo de texto
+with open("my_notes.txt", "r") as file:
+    print("Contenido de my_notes.txt:")
+    for line in file:
+        print(line.strip())  # strip() elimina los caracteres de nueva línea al final de cada línea
+
+# Cierre de archivo (no es necesario en este caso debido al uso de 'with open', pero es una buena práctica)
+# file.close()
