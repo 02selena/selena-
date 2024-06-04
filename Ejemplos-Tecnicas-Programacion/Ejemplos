@@ -1,0 +1,84 @@
+// Ejemplo de Abstracción en Java
+abstract class Animal {
+    abstract void makeSound();
+    
+    public void eat() {
+        System.out.println("Este animal está comiendo.");
+    }
+}
+
+class Perro extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("El perro hace: Guau Guau!");
+    }
+}
+
+
+
+// Ejemplo de Encapsulación en Java
+public class Persona {
+    private String nombre;
+    private int edad;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+}
+
+
+// Ejemplo de Herencia en Java
+class Vehiculo {
+    protected String marca;
+
+    public void mostrarMarca() {
+        System.out.println("Marca: " + marca);
+    }
+}
+
+class Coche extends Vehiculo {
+    private String modelo;
+
+    public Coche(String marca, String modelo) {
+        this.marca = marca;
+        this.modelo = modelo;
+    }
+
+    public void mostrarModelo() {
+        System.out.println("Modelo: " + modelo);
+    }
+}
+
+
+// Ejemplo de Polimorfismo en Java
+class Vehiculo {
+    void mover() {
+        System.out.println("El vehículo se está moviendo");
+    }
+}
+
+class Coche extends Vehiculo {
+    @Override
+    void mover() {
+        System.out.println("El coche está conduciendo");
+    }
+}
+
+class Bicicleta extends Vehiculo {
+    @Override
+    void mover() {
+        System.out.println("La bicicleta está pedaleando");
+    }
+}
