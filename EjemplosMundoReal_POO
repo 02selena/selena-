@@ -1,0 +1,78 @@
+# hotel_reservation_system.py
+
+# Clase que representa una habitación en el hotel
+class Room:
+    def __init__(self, number, type, price):
+        self.number = number
+        self.type = type
+        self.price = price
+        self.is_reserved = False
+
+    def reserve(self):
+        self.is_reserved = True
+
+    def cancel_reservation(self):
+        self.is_reserved = False
+
+# Clase que representa un huésped del hotel
+class Guest:
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+        self.reservations = []
+
+    def make_reservation(self, reservation):
+        self.reservations.append(reservation)
+
+# Clase que representa una reserva
+class Reservation:
+    def __init__(self, guest, room, check_in_date, check_out_date):
+        self.guest = guest
+        self.room = room
+        self.check_in_date = check_in_date
+        self.check_out_date = check_out_date
+
+    def confirm_reservation(self):
+        self.room.reserve()
+
+    def cancel_reservation(self):
+        self.room.cancel_reservation()
+
+# Clase que representa un hotel con múltiples habitaciones
+class Hotel:
+    def __init__(self, name):
+        self.name = name
+        self.rooms = []
+
+    def add_room(self, room):
+        self.rooms.append(room)
+
+    def find_available_room(self, room_type):
+        for room in self.rooms:
+            if room.type == room_type and not room.is_reserved:
+                return room
+        return None
+
+# Crear instancia del hotel
+hotel = Hotel("Hotel Python Paradise")
+
+# Añadir habitaciones al hotel
+hotel.add_room(Room(101, "Single", 100))
+hotel.add_room(Room(102, "Double", 150))
+hotel.add_room(Room(103, "Suite", 250))
+
+# Crear un huésped
+guest = Guest("selena mora ", "selena.mora@hotmail.com")
+
+# Encontrar una habitación disponible
+room = hotel.find_available_room("Double")
+
+# Crear una reserva si se encontró una habitación disponible
+if room:
+    reservation = Reservation(guest, room, "2024-07-01", "2024-07-10")
+    reservation.confirm_reservation()
+    guest.make_reservation(reservation)
+    print(f"Reserva confirmada para {guest.selena} en la habitación {room.number}")
+else:
+    print("No hay habitaciones disponibles del tipo solicitado")
+    
